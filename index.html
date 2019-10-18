@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="" id="inputa">
+	<select id="box">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="&times">&times</option>
+	<option value="/">/</option>
+	</select>
+	<input type="text" name="" id="inputb">
+	<input type="button" name="" value="=" id="c">
+	<input type="text" name="" id="inputd">
+	<div id="ts"></div>
+	<script type="text/javascript">
+		var inputa=document.getElementById('inputa');
+		var inputb=document.getElementById('inputb');
+		var box=document.getElementById('box');
+		var inputd=document.getElementById('inputd');
+		var d=box.selectedIndex;
+		var f=inputd.value;
+		c.onclick=function(){
+			var d=box.selectedIndex;
+			var a=inputa.value;
+        var b=inputb.value;
+			if(a!='' && b!=''){
+				var a=Number(inputa.value);
+        var b=Number(inputb.value);
+			if(!isNaN(a) && !isNaN(b)){
+			       switch(d){
+				       case 0:
+				       inputd.value=a+b;
+				       ts.innerHTML='';
+				       break;
+				       case 1:
+				       inputd.value=a-b;
+				       ts.innerHTML='';
+				       break;
+				       case 2:
+				       inputd.value=a*b;
+				       ts.innerHTML='';
+				       break;
+				       case 3:
+				       if(b!=0){
+				       inputd.value=a/b;
+				       }
+				       else{
+				       	ts.innerHTML='第二个框0不能当除数';
+				       	inputd.value=f;
+				       }
+				       break;
+			       }
+			  }
+			else{
+			  ts.innerHTML='两个框请输入数字';
+			  	if(!isNaN(a)){
+			  		ts.innerHTML='第二个框请输入数字';
+			  	}
+			  	 else if(!isNaN(b))
+			  	{
+			  		ts.innerHTML='第一个框请输入数字';
+			  	}
+			  }
+			}
+
+		 else{
+		  	ts.innerHTML='两框不能为空';
+		  	if(a=='' && b!=''){
+		  		ts.innerHTML='第一个框不能为空';
+		  		// if(!isNaN(Number(b))){
+			  	// 	ts.innerHTML='第一个框不能为空,第二个框请输入数字';
+			  	// }
+		  	}
+
+		  	else if(b=='' && a!=''){
+		  		ts.innerHTML='第二个框不能为空';
+		  		// if(!isNaN(Number(b)))
+			  	// {
+			  	// 	ts.innerHTML='第二个框不能为空,第一个框请输入数字';
+			  	// }
+		  	}
+		 }
+
+
+
+
+		}
+	</script>
+</body>
+</html>
